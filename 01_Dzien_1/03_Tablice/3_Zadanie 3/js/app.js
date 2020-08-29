@@ -1,13 +1,13 @@
 function createArray(number) {
-  const newArray = [10];
+  const newArray = [];
 
-  for (let counter = 1; ; counter <= number) {
+  for (let counter = 1; counter <= number; counter++) {
     newArray.push(counter);
   }
 
-  return newArray[2];
+  return newArray;
 }
-
+createArray(5);
 console.log("tablica z liczbami do 6 = " + createArray(6));
 console.log("tablica z liczbami do 1 = " + createArray(1));
 console.log("Test dla liczby ujemnej (powinna być pusta tablica) " + createArray(-6));
