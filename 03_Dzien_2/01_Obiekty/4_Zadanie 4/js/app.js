@@ -9,11 +9,12 @@
 const person = {
     name: 'Bazyli',
     age: '132',
+    say: ['hello', 'goodbye', 'spadaj pierdoło'],
     sayHello: function () {
-        console.log("hello");
+        console.log(this.say);
     }
 }
 
-console.log(person);
-person;
+// console.log(person);
+
 person.sayHello();
