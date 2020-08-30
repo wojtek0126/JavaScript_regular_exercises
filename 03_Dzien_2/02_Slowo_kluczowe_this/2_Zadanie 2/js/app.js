@@ -11,6 +11,15 @@ const calculator = {
   }
 };
 
-calculator.save(2, 3);
+calculator.save(3, 4);
 console.log(calculator.sum());
-console.log(calculator.multiply());
+
+const babolAleDziala  = {
+  name: 'Franko',
+  super_moves: ['kop w jaja', 'ze łba'],
+  basic_quotes: ['cieknie ci z mordodupy, grubasie',
+  'spadaj pierdoło']
+}
+
+// babolAleDziala = new name('Alex');
+console.log(babolAleDziala);
