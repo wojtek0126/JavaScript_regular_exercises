@@ -19,6 +19,7 @@ function getDataInfo(element){
 //     return array;
 // };
 console.log("1. data info from menu items: ", getDataInfo(menu));
+
 // ** Zadanie 2:
 
 // const mainContainer = document.getElementById("main-container");
@@ -36,12 +37,13 @@ console.log(
     "2. class list of main-container: ",
     getElementClass(mainContainer)
 );
+
 // ** Zadanie 3:
 const pinkColor = document.getElementsByClassName("pink-color");
 const getElementText = (elements) => {
-    let array = [];
+    const array = [];
     Array.from(elements).forEach((element) => {
-        array.push(element.innerText);
+        array.push(element.textContent);
     });
     return array;
 };
@@ -53,7 +55,8 @@ const getElementText = (elements) => {
 //     });
 //     return x;
 // }
-console.log("3. pink text: ", getElementText(pinkColor));
+console.log("3. pink text: ", getElementText(pinkColor)[0]);
+
 // ** Zadanie 4:
 const images = document.getElementsByClassName("images");
 const getElementAlt = (elements) => {
@@ -64,6 +67,7 @@ const getElementAlt = (elements) => {
     return array;
 };
 console.log("4. alt attribute of images: ", getElementAlt(images));
+
 // ** Zadanie 5:
 const myLink = document.getElementsByClassName("my-link");
 const getElementHref = (elements) => {
