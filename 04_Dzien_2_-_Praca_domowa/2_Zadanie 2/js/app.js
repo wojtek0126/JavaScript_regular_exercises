@@ -1,16 +1,4 @@
 
-// const menu = document.getElementById("menu");
-//
-// function getDataInfo(element) {
-//     let array = [];
-//     element.childNodes.forEach(function (node) {
-//         if (node.tagName) {
-//             array.push(node.getAttribute('data-info'));
-//         }
-//     })
-//     return array;
-// }
-
 const menu = document.querySelector("#menu").querySelectorAll("li");
 
 function getDataInfo(element){
@@ -53,7 +41,7 @@ const pinkColor = document.getElementsByClassName("pink-color");
 const getElementText = (elements) => {
     let array = [];
     Array.from(elements).forEach((element) => {
-        array.push(element.textContent);
+        array.push(element.innerText);
     });
     return array;
 };
@@ -86,3 +74,31 @@ const getElementHref = (elements) => {
     return array;
 };
 console.log("5. href attributes: ", getElementHref(myLink));
+
+// //rozwiazanie 1 z wykladu ponizej, z petla for:
+// // function getDataInfo(element){
+// //     const tab = [];
+// //     const items = element.querySelectorAll('li');
+// //     for (let i = 0;i < items.length;i++) {
+// //         const item = items[i];
+// //         tab.push(item.dataset.info);
+// //         //.dataset DO ZAPAMIETANIA, ROBI OBIEKT .info wyciaga info z atrybutu data-info
+// //         return tab;
+// //     }
+// // }
+// // const result = getDataInfo(menu);
+// // console.log(result);
+//
+// //ponizej rozwiazanie 2 z wykladu, z forEach:
+//
+//
+//
+// // const getDataInfo = (element) => {
+// //     let array = [];
+// //     element.childNodes.forEach((node) => {
+// //         if (node.tagName) {
+// //             array.push(node.getAttribute("data-info"));
+// //         }
+// //     });
+// //     return array;
+// // };
