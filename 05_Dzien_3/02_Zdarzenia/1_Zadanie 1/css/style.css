@@ -1,4 +1,16 @@
 /* TASK0A */
+.plusser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: gold;
+}
+
+.result2 {
+  display: flex;
+  justify-content: center;
+}
+
 .parent {
   width: 200px;
   height: 100px;
@@ -7,6 +19,9 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .children {
@@ -15,3 +30,9 @@
   background-color: cornflowerblue;
   display: none;
 }
+
+.parent.show {
+  background-color: cornflowerblue;
+
+}
+
