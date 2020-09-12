@@ -18,7 +18,7 @@ function count(num) {
             console.log("koniec petli");
             clearInterval(timer);
         }
-        i++;  // i++ tutaj, jakby było wyżej poszło by tylko 9 razy
+        i++;  // i++ tutaj
     }, 1000);
 }
 
