@@ -27,10 +27,10 @@ console.log($addressInput, $nameInput, $surnameInput, $invoiceCheckbox, $invoice
 addEventListener('change', function (e) {
     e.preventDefault();
 
-    if ($invoiceCheckbox.checked == false){
+    if ($invoiceCheckbox.checked === false){
         $invoiceData.style.display = 'none';
     }
-    else if ($invoiceCheckbox.checked == true) {
+    else if ($invoiceCheckbox.checked === true) {
         $invoiceData.style.display = 'block';
     }
 });
