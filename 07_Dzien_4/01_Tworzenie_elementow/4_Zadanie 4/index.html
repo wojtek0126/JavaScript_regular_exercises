@@ -58,20 +58,21 @@
   <form class="mt-5">
     <div class="form-group">
       <label for="orderId">Numer zamówienia:</label>
-      <input type="text" id="orderId" class="form-control">
+      <input type="text" id="orderId" class="form-control" required>
     </div>
-
+<!--required mozna dodac tutaj!!, biedna niestylizowana funkcja required, mozna lepiej w JS-->
     <div class="form-group">
       <label for="item">Przedmiot</label>
-      <input type="text" id="item" class="form-control">
+      <input type="text" id="item" class="form-control" required>
     </div>
-
+<!--kazdy input winien miec odpowiedni labe z atrybutem for, jak tu, klik na label na stronie winien wrzucac na pole-->
     <div class="form-group">
       <label for="quantity">Liczba przedmiotów:</label>
-      <input type="text" id="quantity" class="form-control">
+<!--      html tylko float(1,5 telewizora)-->
+      <input type="number" id="quantity" class="form-control" required min="0">
     </div>
-
-    <button type="button" id="add" class="btn btn-primary">Dodaj</button>
+<!--kazda forma powinna miec button submit-->
+    <button type="submit" id="add" class="btn btn-primary">Dodaj</button>
   </form>
 </main>
 
