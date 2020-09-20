@@ -14,145 +14,97 @@
 //     * Wyczyść &ndash; powinien odznaczyć wszystkie opcje,
 // * Wszystkie dodatki &ndash; powinien zaznaczyć wszystkie opcje
 
-//najpierw wyciagne wszystkie potrzebne elementy do zmiennych, dodalem ID do html, zeby nie szukac po atrybucie for:
+
+const checkboxes = document.querySelectorAll('.form-check-input');
+console.log(checkboxes);
 
 const $extraCheeseCheckbox = document.getElementById('cheese');
 const $extraHamCheckbox = document.getElementById('ham');
 const $extraSauceCheckbox = document.getElementById('sauce');
 const $extraPineappleCheckbox = document.getElementById('pineapple');
 const $extraMushroomCheckbox = document.getElementById('mushrooms');
-
-$extraCheeseCheckbox.checked = false;
-$extraHamCheckbox.checked = false;
-$extraPineappleCheckbox.checked = false;
-$extraSauceCheckbox.checked = false;
-$extraMushroomCheckbox.checked = false;
-
-
 console.log($extraCheeseCheckbox, $extraHamCheckbox, $extraSauceCheckbox, $extraPineappleCheckbox, $extraMushroomCheckbox);
-//wyciagam kwote za dodatki
+
 const $extrasValue = document.getElementById('price');
 console.log($extrasValue);
-//dodaje eventa na heckboxa extracheese.checked, ktory doda do extras value
-const extraCheesePrice = 3.5;
-const extraHAmPrice = 2.20;
-const extraSaucePrice = 5;
-const extraPineapplePrice = 4.1;
-const extraMushroomPrice = 3.5;
 
-// function setCheckboxesUncheckedAtLoad(checkbox) {
-//     checkbox.checked === false;
-// }
+const orderInfo = document.querySelector('.order-info');
+console.log(orderInfo);
+
+const addAllExtrasBtn = document.getElementById('all_extras_btn');
+const removeAllExtrasBtn = document.getElementById('clear_extras_btn');
+const submitBtn = document.getElementById('sub_btn');
+console.log(addAllExtrasBtn, removeAllExtrasBtn, submitBtn);
+
+function formatPrice(price) {
+    return price.toFixed(2).replace('.', ',');
+}
+
+let prices = [3.50, 2.20, 5.00, 4.10, 3.50];
+// let extras = [cheese, ham, sauce, pineapple, mushroom];
+
+// extras.forEach(function (e) {
 //
-// setCheckboxesUncheckedAtLoad($extraMushroomCheckbox);
-// setCheckboxesUncheckedAtLoad($extraHamCheckbox);
-// setCheckboxesUncheckedAtLoad($extraSauceCheckbox);
-// setCheckboxesUncheckedAtLoad($extraPineappleCheckbox);
-// setCheckboxesUncheckedAtLoad($extraMushroomCheckbox);
-
-
-// $extraCheeseCheckbox.addEventListener( 'click', function () {
-//     if ($extraCheeseCheckbox.checked == true){
-//         $extrasValue.innerHTML = `${price += cheese} zł`;
-//         console.log('as');
-//     } else {
-//         $extrasValue.innerHTML = `${price -= cheese} zł`;
-//         console.log('ton');
-//     }
-// })
 //
-// $extraHamCheckbox.addEventListener( 'click', function () {
-//     if ($extraHamCheckbox.checked == true){
-//         $extrasValue.innerHTML = `${price += ham} zł`;
-//         console.log('as');
-//     } else {
-//         $extrasValue.innerHTML = `${price -= ham} zł`;
-//         console.log('ton');
-//     }
 // })
+
+
+const extraCheesePrice = prices[0];
+const extraHAmPrice = prices[2];
+const extraSaucePrice = prices[1];
+const extraPineapplePrice = prices[3];
+const extraMushroomPrice = prices[4];
+console.log(extraPineapplePrice, extraHAmPrice, extraSaucePrice, extraCheesePrice, extraMushroomPrice);
+
+
+
+
+checkboxes.forEach(function (e) {
+    e.checked = false;
+});
 let price = 0;
-function addExtra(checkbox, extrasTogetherValue, ingredientPrice) {
-
+let basePrice = 35;
+let totalFull = price + basePrice;
+//zobacz czy tu sie nie da sformatowac
+function addExtra(checkbox, ingredientPrice) {
     checkbox.addEventListener( 'click', function () {
 
         if (checkbox.checked === true){
-            extrasTogetherValue.innerHTML = `${price += ingredientPrice} zł`;
+            let priceAdded = price += ingredientPrice;
+            const addFinal = formatPrice(priceAdded);
+            let wholeCostUp = basePrice += ingredientPrice;
+            let addFinalFormatted = formatPrice(wholeCostUp);
+            $extrasValue.innerHTML = `${addFinal} zł`;
+            orderInfo.innerHTML = `${addFinalFormatted} zł`
+            console.log(addFinal);
+            console.log(wholeCostUp);
+
         } else {
-            extrasTogetherValue.innerHTML = `${price -= ingredientPrice} zł`;
+            let priceDeducted = price -= ingredientPrice;
+            const reduceFinal = formatPrice(priceDeducted);
+            let wholeCostDown = basePrice -= ingredientPrice;
+            let reduceFinalFormatted = formatPrice(wholeCostDown)
+            $extrasValue.innerHTML = `${reduceFinal} zł`;
+            orderInfo.innerHTML = `${reduceFinalFormatted} zł`
+            console.log(reduceFinal);
+            console.log(wholeCostDown);
+
         }
+
     })
 }
 
-addExtra($extraCheeseCheckbox, $extrasValue, extraCheesePrice );
-addExtra($extraHamCheckbox, $extrasValue, extraHAmPrice );
-addExtra($extraPineappleCheckbox, $extrasValue, extraPineapplePrice );
-addExtra($extraSauceCheckbox, $extrasValue, extraSaucePrice );
-addExtra($extraMushroomCheckbox, $extrasValue, extraMushroomPrice );
-
-// function myFunction() {
-//     const checkBox = $extraCheeseCheckbox;
-//
-//     if (checkBox.checked == true){
-//         $extrasValue.innerHTML = `${cheese} zł`;
-//         console.log('as');
-//     } else {
-//         $extrasValue.innerHTML = `${price} zł`;
-//         console.log('ton');
-//     }
-// }
-//
-// myFunction();
-
-// $extrasValue.innerText = `${cheese} zł`;
+addExtra($extraCheeseCheckbox, extraCheesePrice );
+addExtra($extraHamCheckbox, extraHAmPrice );
+addExtra($extraPineappleCheckbox, extraPineapplePrice );
+addExtra($extraSauceCheckbox, extraSaucePrice );
+addExtra($extraMushroomCheckbox, extraMushroomPrice );
 
 
-//ok jest teraz extrasvalue wartosc do zmiennej
 
 
-// const extrasCheckboxes = document.getElementsByTagName('input');
-// const extraCheese = extrasCheckboxes[0]
-// const cheesePrice = extraCheese.getAttribute('data-price');
-// console.log(extrasCheckboxes);
-// console.log(extraCheese);
-// console.log(cheesePrice);
-// const extraCheesePrice = extrasPrices[0];
 
-// function addPrice(checkbox) {
-//     if(checkbox.checked == true){
-//         document.getElementById("price").innerText += ;
-//     }
 
-// const cheeseP = 3.50;
-// const sauceP = 2.20;
-// const hamP = 5;
-// const pineappleP = 4.10;
-// const mushroomP =3.50;
-// let priceForExtras = 0;
-// priceTable = [];
-// priceTable.push(cheeseP, sauceP, hamP, pineappleP, mushroomP);
-// console.log(priceTable);
-//
-//
-// const checkboxes = Array.from(document.querySelectorAll('[id]'));
-// console.log(checkboxes)
-// let checked = function () {
-//     for (let i = 0; i < checkboxes.length; i++) {
-//         if (checkboxes[i].checked) {
-//             $extrasValue.innerText = `pleple `;
-//         }
-//     }
-// }
 
-// function checkAll() {
-//     for (let i = 0; i < checkboxes.length; i++) {
-//         checkboxes[i].checked = true;
-//
-// }}
-//     function clearAll() {
-//         for (let i = 0; i < checkboxes.length; i++) {
-//             checkboxes[i].checked = false;
-//
-//         } }
-// allExtrasBtn.addEventListener('click', checkAll);
-// clearAllExtras.addEventListener('click', clearAll);
+
 

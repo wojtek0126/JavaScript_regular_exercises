@@ -10,7 +10,6 @@
     title: "JavaScript - Praca domowa",
     path: ["Dzień 4", "Zadanie 1"]
   });</script>
-  <script src="jquery-3.5.1.min.js"></script>
 </head>
 <body>
 
@@ -43,9 +42,9 @@
             </div>
 
             <div class="btn-group mt-2">
-              <button type="button" class="btn btn-secondary">Wszystkie dodatki</button>
-              <button type="button" class="btn btn-secondary">Wyczyść</button>
-              <button type="submit" class="btn btn-primary float-right">Zamów</button>
+              <button type="button" class="btn btn-secondary" id="all_extras_btn">Wszystkie dodatki</button>
+              <button type="button" class="btn btn-secondary" id="clear_extras_btn">Wyczyść</button>
+              <button type="submit" class="btn btn-primary float-right" id="sub_btn">Zamów</button>
             </div>
           </form>
         </div>
@@ -58,7 +57,7 @@
         <div class="card-body">
           <h5 class="card-title">Dodatki</h5>
           <p class="card-text">Kwota za dodatki: <span id="price" class="badge badge-primary">0zł</span></p>
-          <p class="card-text order-info"></p>
+          <p class="card-text order-info" id="order_info"></p>
         </div>
       </div>
     </div>
